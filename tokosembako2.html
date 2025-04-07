@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kasir Toko Sembako</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 10px;
+      background-color: rgb(255, 255, 255);
+    }
+    .produk, .keranjang {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .produk-item, .keranjang-item {
+      border: 5px solid rgb(4, 105, 63);
+      padding: 10px;
+      width: 200px;
+      border-radius: 10px;
+    }
+    .produk-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .btn {
+      background-color: #28a745;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 5px;
+      
+    }
+    .btn:hover {
+      background-color: #218838;
+    }
+    #struk {
+      border: 1px dashed #666;
+      padding: 10px;
+      margin-top: 20px;
+      white-space: pre-wrap;
+      background: #fefefe;
+    }
+    #struk[contenteditable="true"] {
+      min-height: 100px;
+    }
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      #struk, #struk * {
+        visibility: visible;
+      }
+      #struk {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <img 
+  width="30%" height="30%"
+  src="D:\logosae.jpg" alt="" srcset="">
+  <h1 align="center" >Toko Sae</h1>
+  <h3 align="center" >Jalan Sanan 57 Malang</h3>
+
+  <h2>Daftar Produk</h2>
+  <div class="produk">
+    <div class="produk-item">
+      <img src="D:\produk toko\beras.jpg" alt="Beras">
+      <h4>Beras 1kg</h4>
+      <p>Rp15.000</p>
+      <button class="btn" onclick="tambahKeKeranjang('Beras 1kg', 15000)">Tambah</button>
+    </div>
+    <div class="produk-item">
+      <img src="D:\produk toko\minyak.jpg" alt="Minyak">
+      <h4>Minyak Goreng 1L</h4>
+      <p>Rp18.000</p>
+      <button class="btn" onclick="tambahKeKeranjang('Minyak Goreng 1L', 18000)">Tambah</button>
+    </div>
+    <div class="produk-item">
+      <img src="D:\produk toko\gula.jpg" alt="Gula">
+      <h4>Gula Pasir 1kg</h4>
+      <p>Rp17.500</p>
+      <button class="btn" onclick="tambahKeKeranjang('Gula Pasir 1kg', 17500)">Tambah</button>
+    </div>
+    <div class="produk-item">
+      <img src="D:\produk toko\telor.jpg" alt="Telor">
+      <h4>Telor 1kg</h4>
+      <p>Rp25.000</p>
+      <button class="btn" onclick="tambahKeKeranjang('Telor 1kg', 15000)">Tambah</button>
+    </div>
+    <div class="produk-item">
+      <img src="D:\produk toko\gula merah.jpg" alt="Gula Merah">
+      <h4>Gula Merah 1/4 kg</h4>
+      <p>Rp4.500</p>
+      <button class="btn" onclick="tambahKeKeranjang('Gula Merah 1/4kg', 4500)">Tambah</button>
+    </div>
+    <div class="produk-item">
+      <img src="D:\produk toko\kacang.jpg" alt="Kacang">
+      <h4>Kacang 1kg</h4>
+      <p>Rp29.000</p>
+      <button class="btn" onclick="tambahKeKeranjang('Kacang 1kg', 29000)">Tambah</button>
+    </div>
+    <div class="produk-item">
+      <img src="D:\produk toko\tberas.jpg" alt="tberas">
+      <h4>Tepung Beras 500g</h4>
+      <p>Rp7.500</p>
+      <button class="btn" onclick="tambahKeKeranjang('Tepung Beras 500g', 7500)">Tambah</button>
+    </div>
+    <div class="produk-item">
+      <img src="D:\produk toko\tketan.jpg" alt="tketan">
+      <h4>Tepung Ketan 500g</h4>
+      <p>Rp11.000</p>
+      <button class="btn" onclick="tambahKeKeranjang('Tepung Ketan 500g', 11000)">Tambah</button>
+    </div>
+    <div class="produk-item">
+      <img src="D:\produk toko\kanji.jpg" alt="Kanji">
+      <h4>Kanji 200g</h4>
+      <p>Rp3.000</p>
+      <button class="btn" onclick="tambahKeKeranjang('Kanji 200g', 3000)">Tambah</button>
+    </div>
+    <div class="produk-item">
+      <img src="D:\produk toko\koran.jpg" alt="Koran">
+      <h4>Koran 1/2 kg</h4>
+      <p>Rp8.000</p>
+      <button class="btn" onclick="tambahKeKeranjang('Koran 1/2 kg', 8000)">Tambah</button>
+    </div>
+    <div class="produk-item">
+      <img src="D:\produk toko\djap.jpeg" alt="Djapalingga">
+      <h4>Kopi Djapalingga 85gr</h4>
+      <p>Rp10.000</p>
+      <button class="btn" onclick="tambahKeKeranjang('Kopi Djapalingga 85gr', 10000)">Tambah</button>
+    </div>
+    <div class="produk-item">
+      <img src="D:\produk toko\djapa 5000.jpg" alt="djapa 5000">
+      <h4>Kopi Djapalingga 50gr</h4>
+      <p>Rp5.000</p>
+      <button class="btn" onclick="tambahKeKeranjang('Kopi Djapalingga 50gr', 5000)">Tambah</button>
+    </div>
+    <div class="produk-item">
+      <img src="D:\produk toko\gas.jpg" alt="Beras">
+      <h4>Gas 3kg</h4>
+      <p>Rp21.000</p>
+      <button class="btn" onclick="tambahKeKeranjang('Gas 3kg', 21000)">Tambah</button>
+    </div>
+    <div class="produk-item">
+      <img src="D:\produk toko\kertas bungkus.jpg" alt="kertas bungkus">
+      <h4>Kertas bungkus 100 Lbr</h4>
+      <p>Rp11.000</p>
+      <button class="btn" onclick="tambahKeKeranjang('Kertas bungkus 100 Lbr', 11000)">Tambah</button>
+    </div>
+    <div class="produk-item">
+      <img src="D:\produk toko\kertas bungkus.jpg" alt="Gula">
+      <h4>Kertas bungkus 50 Lbr</h4>
+      <p>Rp6.000</p>
+      <button class="btn" onclick="tambahKeKeranjang('Kertas bungkus 50 Lbr', 6000)">Tambah</button>
+    </div>
+    <div class="produk-item">
+      <img src="D:\produk toko\kenduri.jpg" alt="kenduri">
+      <h4>Mie Kenduri orange</h4>
+      <p>Rp12.500</p>
+      <button class="btn" onclick="tambahKeKeranjang('Mie Kenduri orange', 12500)">Tambah</button>
+    </div>
+    <div class="produk-item">
+      <img src="D:\produk toko\menjangan.jpg" alt="menjangan">
+      <h4>Mie Kuda Menjangan</h4>
+      <p>Rp6.000</p>
+      <button class="btn" onclick="tambahKeKeranjang('Mie Kuda Menjangan', 6000)">Tambah</button>
+    </div>
+    <div class="produk-item">
+      <img src="D:\produk toko\padamu.jpg" alt="padamu">
+      <h4>Bihun Padamu Merah</h4>
+      <p>Rp7.000</p>
+      <button class="btn" onclick="tambahKeKeranjang('Bihun Padamu Merah', 7000)">Tambah</button>
+    </div>
+    <div class="produk-item">
+      <img src="D:\produk toko\padamukun.jpg" alt="padamukun">
+      <h4>Bihun Padamu Kuning</h4>
+      <p>Rp4.000</p>
+      <button class="btn" onclick="tambahKeKeranjang('Bihun Padamu Kuning', 4000)">Tambah</button>
+    </div>
+    <div class="produk-item">
+      <img src="D:\produk toko\garam.jpg" alt="garam">
+      <h4>Garam Kapal</h4>
+      <p>Rp2.500</p>
+      <button class="btn" onclick="tambahKeKeranjang('Garam Kapal', 2500)">Tambah</button>
+    </div>
+  </div>
+
+    
+
+  <h2>Keranjang Belanja</h2>
+  <div class="keranjang" id="keranjang"></div>
+
+  <h3>Total: Rp<span id="total">0</span></h3>
+
+  <button class="btn" onclick="cetakStruk()">Cetak Struk</button>
+
+  <h2>Struk Pembelian</h2>
+  <div id="struk" contenteditable="true">
+    Struk akan muncul di sini setelah menambahkan barang dan klik Cetak Struk.
+  </div>
+  <br>
+  <button class="btn" onclick="window.print()">Print Struk</button>
+
+  <script>
+    let keranjang = [];
+    function tambahKeKeranjang(nama, harga) {
+      keranjang.push({ nama, harga });
+      renderKeranjang();
+    }
+
+    function renderKeranjang() {
+      const container = document.getElementById('keranjang');
+      const totalElem = document.getElementById('total');
+      container.innerHTML = '';
+      let total = 0;
+
+      keranjang.forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = 'keranjang-item';
+        div.innerHTML = `
+          <p>${item.nama}</p>
+          <p>Rp${item.harga.toLocaleString()}</p>
+          <button class="btn" style="background:#dc3545" onclick="hapusItem(${index})">Hapus</button>
+        `;
+        container.appendChild(div);
+        total += item.harga;
+      });
+
+      totalElem.textContent = total.toLocaleString();
+    }
+
+    function hapusItem(index) {
+      keranjang.splice(index, 1);
+      renderKeranjang();
+    }
+
+    function cetakStruk() {
+      let struk = `=== Toko Sae ===
+Jalan Sanan 57 Malang\n`;
+      
+        let total = 0;
+      keranjang.forEach((item, i) => {
+        struk += `${i + 1}. ${item.nama} - Rp${item.harga.toLocaleString()}\n`;
+        total += item.harga;
+      });
+      struk += `--------------------------\n`;
+      struk += `Total: Rp${total.toLocaleString()}\n`;
+      struk += `\nTerima kasih telah berbelanja!`;
+      document.getElementById('struk').innerText = struk;
+    }
+  </script>
+
+</body>
+
+<div class="contact">
+    <h3 align="center" >Toko Sae <br>
+    Jalan Sanan 57 Malang </h3>
+    <p align="center">Jika Anda memiliki pertanyaan atau ingin konfirmasi pesanan anda, silakan hubungi kami melalui nomor di bawah ini:</p>
+    <p align="center">📞 <a class="tel-link" href="tel:+62895639446858">+62 89-563-944-6858</a></p>
+  </div>
+</div>
+
+</html>
